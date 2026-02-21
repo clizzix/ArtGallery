@@ -1,7 +1,35 @@
-import React from 'react';
+import { type MouseEventHandler } from 'react';
+import { MdAdd } from 'react-icons/md';
+import type { Artwork } from '../types';
+import { toast } from 'react-toastify';
 
-const AddBtn = () => {
-    return <div></div>;
+type AddBtnProps = {
+    artwork: Artwork;
+    onAdd?: () => void;
+};
+
+const AddBtn = ({ artwork, onAdd }: AddBtnProps) => {
+    const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
+        const storedGallery = localStorage.getItem('gallery');
+        const gallery: Artwork[] = storedGallery
+            ? JSON.parse(storedGallery)
+            : [];
+        if (!gallery.some((item) => item.id === artwork.id)) {
+            localStorage.setItem(
+                'gallery',
+                JSON.stringify([...gallery, artwork]),
+            );
+            if (onAdd) onAdd();
+        }
+        toast.success('Successfully added to your Gallery!');
+    };
+    return (
+        <>
+            <button onClick={handleClick} className="btn btn-primary">
+                <MdAdd size={24} />
+            </button>
+        </>
+    );
 };
 
 export default AddBtn;
