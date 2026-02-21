@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import type { Artwork } from '../types';
 
 type ArtworkCardProps = {
@@ -22,7 +23,12 @@ const ArtworkCard = ({ details }: ArtworkCardProps) => {
                 <p>{details.main_place_of_origin}</p>
                 <p>Created: {details.date_display}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Show More...</button>
+                    <Link
+                        to={`/gallery/${details.id}`}
+                        className="btn btn-primary"
+                    >
+                        Show More...
+                    </Link>
                 </div>
             </div>
         </div>

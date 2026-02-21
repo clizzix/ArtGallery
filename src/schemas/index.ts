@@ -14,3 +14,7 @@ export const ArtworkSchema = z.object({
 export const ArtworkResponseSchema = z.object({
     data: z.array(ArtworkSchema),
 });
+
+export const SingleArtworkResponseSchema = z.object({
+    data: ArtworkSchema,
+});
