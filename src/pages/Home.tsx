@@ -1,53 +1,48 @@
 import { useState, useEffect } from 'react';
 import ArtworkCard from '../components/ArtworkCard';
 import type { Artwork } from '../types';
-import { ArtworkResponseSchema } from '../schemas';
-
-const url = import.meta.env.VITE_API_BASE_URL;
-const params =
-    '?page=2&limit=12&fields=id,title,alt_titles,artist_display,date_display,main_place_of_origin,medium_display,image_id';
-
-const getArtworkSelection = async (): Promise<Artwork[]> => {
-    try {
-        if (!url) throw new Error('API URL is missing');
-        const res = await fetch(`${url}${params}`);
-        if (!res.ok) {
-            throw new Error(`Something went wrong! ${res.statusText}`);
-        }
-        const resData = await res.json();
-        const { data, error, success } =
-            ArtworkResponseSchema.safeParse(resData);
-        if (!success) {
-            console.error(error.format());
-            throw new Error('Failed to parse artwork data');
-        }
-        return data.data;
-    } catch (err) {
-        console.error(err);
-        throw err;
-    }
-};
+import { getArtworkSelection } from '../api/services';
+import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 
 const Home = () => {
     const [artworks, setArtworks] = useState<Artwork[]>([]);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getArtworkSelection();
+                const data = await getArtworkSelection(page);
                 setArtworks(data);
-            } catch (error) {
-                console.error(error);
+            } catch (err) {
+                console.error(err);
             }
         };
         fetchData();
-    }, []);
+    }, [page]);
 
     return (
-        <div className="flex flex-wrap gap-4 justify-center p-4">
-            {artworks.map((artwork) => (
-                <ArtworkCard key={artwork.id} details={artwork} />
-            ))}
+        <div className="flex flex-col items-center gap-4 p-4">
+            <div className="flex gap-4">
+                <button
+                    className="btn btn-secondary"
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    disabled={page === 1}
+                >
+                    <MdArrowBack size={24} />
+                </button>
+                <span className="self-center font-bold">{page}</span>
+                <button
+                    className="btn btn-secondary"
+                    onClick={() => setPage((p) => p + 1)}
+                >
+                    <MdArrowForward size={24} />
+                </button>
+            </div>
+            <div className="flex flex-wrap gap-4 justify-center">
+                {artworks.map((artwork) => (
+                    <ArtworkCard key={artwork.id} details={artwork} />
+                ))}
+            </div>
         </div>
     );
 };

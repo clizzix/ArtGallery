@@ -1,2 +1,6 @@
 @import 'tailwindcss';
 @plugin "daisyui";
+
+body {
+    background-image: url('https://images.pexels.com/photos/2081166/pexels-photo-2081166.jpeg');
+}
