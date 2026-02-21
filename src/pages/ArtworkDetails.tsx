@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router';
 import { getArtworkById } from '../api/services';
 import type { Artwork } from '../types';
 import { MdArrowBack } from 'react-icons/md';
+import AddBtn from '../components/AddBtn';
+import DeleteBtn from '../components/DeleteBtn';
 
 const ArtworkDetails = () => {
     const { detail } = useParams();
@@ -65,6 +67,10 @@ const ArtworkDetails = () => {
                             ''
                         )}{' '}
                     </div>
+                </div>
+                <div className="flex gap-2 self-end justify-self-end m-8">
+                    <AddBtn artwork={artwork} />
+                    <DeleteBtn artwork={artwork} />
                 </div>
             </div>
         </>
