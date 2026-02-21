@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 const MainLayout = () => {
     return (
-        <>
+        <div>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -19,11 +19,11 @@ const MainLayout = () => {
                 theme="dark"
             />
             <Header />
-            <div className="mx-auto m-4">
+            <div className="mx-auto m-4 min-h-screen">
                 <Outlet />
             </div>
             <Footer />
-        </>
+        </div>
     );
 };
 
