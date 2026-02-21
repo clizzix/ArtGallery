@@ -6,13 +6,13 @@ type ArtworkCardProps = {
 
 const ArtworkCard = ({ details }: ArtworkCardProps) => {
     return (
-        <div className="card bg-base-100 w-96 shadow-sm">
+        <div className="card w-96 shadow-sm glass">
             <figure>
                 {details.image_id && (
                     <img
                         src={`https://www.artic.edu/iiif/2/${details.image_id}/full/843,/0/default.jpg`}
                         alt={details.title ?? 'Artwork'}
-                        className="w-full h-96 object-cover"
+                        className="w-full h-72 object-cover"
                     />
                 )}
             </figure>

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar glass shadow-md">
             <div className="flex-1">
                 <Link to="/" className="btn btn-ghost text-xl">
                     Art Gallery
