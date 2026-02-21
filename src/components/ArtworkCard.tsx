@@ -12,6 +12,7 @@ const ArtworkCard = ({ details }: ArtworkCardProps) => {
                     <img
                         src={`https://www.artic.edu/iiif/2/${details.image_id}/full/843,/0/default.jpg`}
                         alt={details.title ?? 'Artwork'}
+                        className="w-full h-96 object-cover"
                     />
                 )}
             </figure>
@@ -19,8 +20,7 @@ const ArtworkCard = ({ details }: ArtworkCardProps) => {
                 <h2 className="card-title">{details.title ?? 'Untitled'}</h2>
                 <h3>{details.artist_display}</h3>
                 <p>{details.main_place_of_origin}</p>
-                <p>{details.date_display}</p>
-                <p>Description: {details.medium_display}</p>
+                <p>Created: {details.date_display}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Show More...</button>
                 </div>
