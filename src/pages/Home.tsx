@@ -24,7 +24,7 @@ const Home = () => {
         <div className="flex flex-col items-center gap-4 p-4">
             <div className="flex gap-4">
                 <button
-                    className="btn btn-secondary"
+                    className="btn btn-primary rounded-md"
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
                 >
@@ -32,7 +32,7 @@ const Home = () => {
                 </button>
                 <span className="self-center font-bold">{page}</span>
                 <button
-                    className="btn btn-secondary"
+                    className="btn btn-primary rounded-md"
                     onClick={() => setPage((p) => p + 1)}
                 >
                     <MdArrowForward size={24} />
