@@ -1,6 +1,6 @@
 import { MdHome } from 'react-icons/md';
 import { RiGalleryView2 } from 'react-icons/ri';
-import { Link } from 'react-router';
+import { NavLink, Link } from 'react-router';
 
 const Header = () => {
     return (
@@ -11,16 +11,34 @@ const Header = () => {
                 </Link>
             </div>
             <div className="flex-none">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 gap-2">
                     <li>
-                        <Link to="/">
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                `rounded-xl transition-all duration-300 ${
+                                    isActive
+                                        ? 'bg-white/20 text-white shadow-inner'
+                                        : 'text-white/60 hover:bg-white/10'
+                                }`
+                            }
+                        >
                             <MdHome size={24} />
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/gallery">
+                        <NavLink
+                            to="/gallery"
+                            className={({ isActive }) =>
+                                `rounded-xl transition-all duration-300 ${
+                                    isActive
+                                        ? 'bg-white/20 text-white shadow-inner'
+                                        : 'text-white/60 hover:bg-white/10'
+                                }`
+                            }
+                        >
                             <RiGalleryView2 size={24} />
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

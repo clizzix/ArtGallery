@@ -21,7 +21,7 @@ const Gallery = () => {
         <div className="p-4">
             <button
                 onClick={() => navigate(-1)}
-                className="btn btn-primary mb-4"
+                className="btn btn-warning mb-4"
             >
                 <MdArrowBack size={24} />
             </button>

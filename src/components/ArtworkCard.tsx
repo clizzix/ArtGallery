@@ -38,7 +38,7 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
             </figure>
             <div className="card-body">
                 <h2
-                    className="card-title line-clamp-1"
+                    className="card-title line-clamp-1 text-error"
                     title={details.title ?? 'Untitled'}
                 >
                     {details.title ?? 'Untitled'}
@@ -54,26 +54,29 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
                 </p>
                 <div className="card-actions justify-end mt-auto">
                     {isStored ? (
-                        <DeleteBtn
-                            artwork={details}
-                            onDelete={() => {
-                                setIsStored(false);
-                                if (onDelete) onDelete();
-                            }}
-                        />
+                        <>
+                            <DeleteBtn
+                                artwork={details}
+                                onDelete={() => {
+                                    setIsStored(false);
+                                    if (onDelete) onDelete();
+                                }}
+                            />
+                            <AddNoteBtn
+                                artwork={details}
+                                onEdit={() => setIsStored(true)}
+                            />
+                        </>
                     ) : (
                         <AddBtn
                             artwork={details}
                             onAdd={() => setIsStored(true)}
                         />
                     )}
-                    <AddNoteBtn
-                        artwork={details}
-                        onEdit={() => setIsStored(true)}
-                    />
+
                     <Link
                         to={`/gallery/${details.id}`}
-                        className="btn btn-primary"
+                        className="btn btn-base-300"
                     >
                         Show More...
                     </Link>
