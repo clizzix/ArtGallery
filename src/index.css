@@ -4,3 +4,23 @@
 body {
     background-image: url('https://images.pexels.com/photos/2081166/pexels-photo-2081166.jpeg');
 }
+
+@theme {
+    --color-glass-white: rgba(255, 255, 255, 0.1);
+    --color-glass-border: rgba(255, 255, 255, 0.3);
+}
+
+.glass-liquid {
+    background-color: var(--color-glass-white);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.glass-header {
+    background-color: var(--color-glass-white);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-xl);
+}

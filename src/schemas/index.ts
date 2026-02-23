@@ -18,3 +18,8 @@ export const ArtworkResponseSchema = z.object({
 export const SingleArtworkResponseSchema = z.object({
     data: ArtworkSchema,
 });
+
+export const ArtworkNoteSchema = z.object({
+    data: ArtworkSchema,
+    note: z.string().nullish(),
+});

@@ -20,7 +20,10 @@ const DeleteBtn = ({ artwork, onDelete }: DeleteBtnProps) => {
         if (onDelete) onDelete();
     };
     return (
-        <button onClick={handleClick} className="btn btn-error text-white">
+        <button
+            onClick={handleClick}
+            className="btn btn-ghost btn-circle text-error"
+        >
             <MdDelete size={24} />
         </button>
     );

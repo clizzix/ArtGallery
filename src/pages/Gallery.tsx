@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { MdArrowBack } from 'react-icons/md';
 import ArtworkCard from '../components/ArtworkCard';
-import DeleteBtn from '../components/DeleteBtn';
 import type { Artwork } from '../types';
 
 const Gallery = () => {

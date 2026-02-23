@@ -25,7 +25,10 @@ const AddBtn = ({ artwork, onAdd }: AddBtnProps) => {
     };
     return (
         <>
-            <button onClick={handleClick} className="btn btn-primary">
+            <button
+                onClick={handleClick}
+                className="btn btn-ghost btn-circle text-success"
+            >
                 <MdAdd size={24} />
             </button>
         </>

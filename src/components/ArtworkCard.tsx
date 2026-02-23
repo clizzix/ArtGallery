@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import type { Artwork } from '../types';
 import AddBtn from './AddBtn';
 import DeleteBtn from './DeleteBtn';
+import AddNoteBtn from './AddNoteBtn';
 
 type ArtworkCardProps = {
     details: Artwork;
@@ -21,7 +22,7 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
     }, [details.id]);
 
     return (
-        <div className="card w-96 h-[550px] shadow-sm glass">
+        <div className="card w-96 h-auto glass-liquid">
             <figure className="h-72 w-full bg-base-300">
                 {details.image_id ? (
                     <img
@@ -51,7 +52,6 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
                 >
                     {details.main_place_of_origin}
                 </p>
-                <p className="truncate">Created: {details.date_display}</p>
                 <div className="card-actions justify-end mt-auto">
                     {isStored ? (
                         <DeleteBtn
@@ -67,6 +67,10 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
                             onAdd={() => setIsStored(true)}
                         />
                     )}
+                    <AddNoteBtn
+                        artwork={details}
+                        onEdit={() => setIsStored(true)}
+                    />
                     <Link
                         to={`/gallery/${details.id}`}
                         className="btn btn-primary"
