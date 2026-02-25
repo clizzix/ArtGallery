@@ -19,6 +19,7 @@ const DeleteBtn = ({ artwork, onDelete }: DeleteBtnProps) => {
         toast.error('Artwork deleted successfully');
         if (onDelete) onDelete();
     };
+
     return (
         <button
             onClick={handleClick}

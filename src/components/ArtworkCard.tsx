@@ -22,7 +22,7 @@ const ArtworkCard = ({ details, onDelete }: ArtworkCardProps) => {
     }, [details.id]);
 
     return (
-        <div className="card w-96 h-auto glass-liquid">
+        <div className="card w-96 grow h-auto glass-liquid">
             <figure className="h-72 w-full bg-base-300">
                 {details.image_id ? (
                     <img

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 @plugin "daisyui";
 
 body {
@@ -8,8 +9,14 @@ body {
 @theme {
     --color-glass-white: rgba(255, 255, 255, 0.1);
     --color-glass-border: rgba(255, 255, 255, 0.3);
+    --font-apple:
+        -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter',
+        'Helvetica Neue', sans-serif;
 }
 
+body {
+    font-family: var(--font-apple);
+}
 .glass-liquid {
     background-color: var(--color-glass-white);
     backdrop-filter: blur(12px);
@@ -23,4 +30,24 @@ body {
     backdrop-filter: blur(12px);
     border: 1px solid var(--color-glass-border);
     box-shadow: var(--shadow-xl);
+}
+
+.glass-heading {
+    font-family: var(--font-apple);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 8vw + 1rem, 2rem);
+    letter-spacing: -0.022em;
+    line-height: 1.1;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Optional: Subtle smoothing for Mac-like rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

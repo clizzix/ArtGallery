@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <div className="navbar glass-header">
             <div className="flex-1">
-                <Link to="/" className="btn btn-ghost text-xl">
-                    Art Institute of Chicago
+                <Link to="/" className="glass-heading">
+                    Art Collector
                 </Link>
             </div>
             <div className="flex-none">

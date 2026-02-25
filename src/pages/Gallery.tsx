@@ -7,7 +7,7 @@ import SearchInterface from '../components/SearchInterface';
 
 const Gallery = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [artworks] = useState<Artwork[]>(() => {
+    const [artworks, setArtworks] = useState<Artwork[]>(() => {
         try {
             const stored = localStorage.getItem('gallery');
             return stored ? JSON.parse(stored) : [];
@@ -18,6 +18,12 @@ const Gallery = () => {
     });
 
     const navigate = useNavigate();
+
+    const handleDelete = (artworkId: number) => {
+        setArtworks((currentArtworks) =>
+            currentArtworks.filter((art) => art.id !== artworkId),
+        );
+    };
 
     const filteredArtworks = useMemo(() => {
         if (!searchTerm.trim()) return artworks;
@@ -43,7 +49,7 @@ const Gallery = () => {
                 <div className="flex-1 max-w-md">
                     <SearchInterface
                         onSearch={(term) => setSearchTerm(term)}
-                        placeholder="Search your saved gallery..."
+                        placeholder="Search your personal collection..."
                     />
                 </div>
             </div>
@@ -60,7 +66,10 @@ const Gallery = () => {
                 <div className="flex flex-wrap gap-4 justify-center">
                     {filteredArtworks.map((artwork) => (
                         <div key={artwork.id} className="flex flex-col gap-2">
-                            <ArtworkCard details={artwork} />
+                            <ArtworkCard
+                                details={artwork}
+                                onDelete={() => handleDelete(artwork.id)}
+                            />
                         </div>
                     ))}
                 </div>
