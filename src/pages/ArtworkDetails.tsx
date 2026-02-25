@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { getArtworkById } from '../api/services';
-import type { Artwork } from '../types';
 import { MdArrowBack } from 'react-icons/md';
+import type { Artwork } from '../types';
 import AddNoteBtn from '../components/AddNoteBtn';
 import DeleteBtn from '../components/DeleteBtn';
 

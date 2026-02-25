@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { MdArrowBack } from 'react-icons/md';
-import ArtworkCard from '../components/ArtworkCard';
 import type { Artwork } from '../types';
+import ArtworkCard from '../components/ArtworkCard';
 import SearchInterface from '../components/SearchInterface';
 
 const Gallery = () => {
