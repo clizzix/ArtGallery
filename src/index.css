@@ -1,10 +1,6 @@
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import 'tailwindcss';
 @plugin "daisyui";
-
-body {
-    background-image: url('https://images.pexels.com/photos/2081166/pexels-photo-2081166.jpeg');
-}
 
 @theme {
     --color-glass-white: rgba(255, 255, 255, 0.1);
@@ -13,10 +9,12 @@ body {
         -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter',
         'Helvetica Neue', sans-serif;
 }
-
 body {
+    background-image: url('https://images.pexels.com/photos/2081166/pexels-photo-2081166.jpeg');
     font-family: var(--font-apple);
+    background-attachment: fixed;
 }
+
 .glass-liquid {
     background-color: var(--color-glass-white);
     backdrop-filter: blur(12px);
