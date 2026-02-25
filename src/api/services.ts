@@ -18,7 +18,7 @@ export const getArtworkSelection = async (
         const { data, error, success } =
             ArtworkResponseSchema.safeParse(resData);
         if (!success) {
-            console.error(error.format());
+            console.error(error);
             throw new Error('Failed to parse artwork data');
         }
         return data.data;
@@ -40,7 +40,7 @@ export const getArtworkById = async (id: string | number): Promise<Artwork> => {
         const { data, error, success } =
             SingleArtworkResponseSchema.safeParse(resData);
         if (!success) {
-            console.error(error.format());
+            console.error(error);
             throw new Error('Failed to parse artwork data');
         }
         return data.data;
@@ -68,7 +68,7 @@ export const searchArtwork = async (
         const { data, error, success } =
             ArtworkResponseSchema.safeParse(resData);
         if (!success) {
-            console.error(error.format());
+            console.error(error);
             throw new Error('Failed to parse artwork data');
         }
         return data.data;
