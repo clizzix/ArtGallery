@@ -50,7 +50,7 @@ const ArtworkDetails = () => {
             <div className="hero glass-liquid min-h-screen items-start max-w-7xl mx-auto rounded-md shadow-md m-8 relative">
                 <div className="hero-content flex-col gap-8">
                     <button
-                        className="btn btn-warning place-self-start"
+                        className="btn btn-circle btn-ghost place-self-start"
                         onClick={() => navigate(-1)}
                     >
                         <MdArrowBack size={24} />
