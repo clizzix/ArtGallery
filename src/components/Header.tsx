@@ -7,7 +7,7 @@ const Header = () => {
         <div className="navbar glass-header">
             <div className="flex-1">
                 <Link to="/" className="btn btn-ghost text-xl">
-                    Art Gallery
+                    Art Institute of Chicago
                 </Link>
             </div>
             <div className="flex-none">
